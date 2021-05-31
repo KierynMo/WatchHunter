@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-  def new
-  end
+  # def new
+  # end
 
-  def create
-  end
+  # def create
+  # end
 
-  private
+  # private
 
-  def user_params
-  end
+  # def user_params
+  # end
 end
