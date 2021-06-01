@@ -1,12 +1,15 @@
-<!-- navbar -->
-<div class="navbar-lewagon">
 
-</div>
-<!-- watch banner -->
+<div class= "navbar-lewagon"></div>
 
-<div class="banner">
-  <img src="" alt="">
-</div>
-<!-- name -->
-<!-- price -->
-<!-- book now form -->
+
+<% if @watch.photo.attached? %>
+  <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<h1><%= @watch.name %></h1>
+<h3><%= @watch.brand %></h3>
+
+<%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch) %>
+<br>
+<%= link_to "Go back to watches", watches_path %>
+
