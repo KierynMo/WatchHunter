@@ -1,7 +1,4 @@
 
-<div class= "navbar-lewagon"></div>
-
-
 <% if @watch.photo.attached? %>
   <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
