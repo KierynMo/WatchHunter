@@ -2,6 +2,7 @@
   <div class="row justify-content-center mt-5">
     <div class="col-6 col-offset-3">
       <h1>Book Your Selected Watch</h1>
+      <%= cl_image_tag @watch.photo.key, crop: :fill if @watch.photo.attached?%>
         <%= simple_form_for([@watch, @booking]) do |f| %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
