@@ -1,6 +1,6 @@
 class WatchesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  
+
   def index
     @watches = Watch.all
   end
@@ -10,14 +10,22 @@ class WatchesController < ApplicationController
   end
 
   def new
-
+    @watch = Watch.new
   end
 
   def create
-  end 
+    @watch = Watch.new(watch_params)
+    @watch.user = current_user
+    if @watch.save
+      redirect_to watches_path
+    else
+      render :new
+    end
+  end
 
   private
 
   def watch_params
+    params.require(:watch).permit(:name, :brand, :price)
   end
 end
