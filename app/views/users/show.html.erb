@@ -1,13 +1,43 @@
-<h3>User show page - after creating a booking redirect to here, list bookings amoung other user details</h3>
+<div class="container m-3">
+  <h3>My Bookings</h3>
+    <div class="row justify-content-between">
+          <% @bookings.each do |booking| %>
+            <tr>
+                <div class="card text-center m-3" class="col-sm-4" style="width: 18rem;">
+                  <img class="card-img-top" src="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+                    <div class="d-flex justify-content-center m-4">
+                      <%= link_to user_path do  %>
+                        <button type="button" class="btn btn-primary m-2">Delete</button>
+                      <% end %>
+                      <%= link_to user_path do  %>
+                        <button type="button" class="btn btn-primary m-2">Update</button>
+                      <% end %>
+                    </div>
+                </div>
+            </tr>
+          <% end %>
+      </div>
+  </div>
+ </div>
 
-<ul class="list-inline tabs-underlined">
-  <li>
-    <a href="#" class="tab-underlined active">Bookings</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Requests</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Conversations</a>
-  </li>
-</ul>
+<div class="container m-3">
+  <h3>My Watches</h3>
+      <div class="row justify-content-between">
+          <% @watches.each do |watch| %>
+            <tr>
+                <div class="card text-center m-3" class="col-sm-4" style="width: 18rem;">
+                  <img class="card-img-top" src="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+                    <div class="d-flex justify-content-center m-4">
+                        <%= link_to user_path do  %>
+                          <button type="button" class="btn btn-primary m-2">Delete</button>
+                        <% end %>
+                        <%= link_to user_path do  %>
+                          <button type="button" class="btn btn-primary m-2">Update</button>
+                        <% end %>
+                    </div>
+                </div>
+            </tr>
+          <% end %>
+    </div>
+  </div>
+</div>
