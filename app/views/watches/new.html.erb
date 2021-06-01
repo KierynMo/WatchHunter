@@ -1,1 +1,8 @@
-new.html.erb
+<h2>Add a watch</h2>
+
+<%= simple_form_for @watch do |f| %>
+<%= f.input :name %>
+<%= f.input :brand %>
+<%= f.input :price %>
+<%= f.submit %>
+<% end %>
