@@ -19,8 +19,8 @@
     <% @watches.each do |watch| %>
       <tr>
           <div class="card text-center m-3" class="col-sm-4" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-
+            <!-- <img class="card-img-top" src="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap"> -->
+            <%= cl_image_tag watch.photo.key, crop: :fill if watch.photo.attached?%>
             <%= link_to watch.name, watch_path(watch) %>
           </div>
       </tr>
