@@ -8,8 +8,15 @@
 
       <h1><%= @watch.name %></h1>
       <h3><%= @watch.brand %></h3>
-
-      <%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch), class: 'btn btn-success' %>
+      <!-- cant book your own watch -->
+      <% if @watch.user == current_user %>
+        <div class="btn btn-secondary" id="own-watch">
+          <span class="no-hover">Booking Disabled</span>
+          <span class="hover">It's Your Watch!</span>
+        </div>
+      <% else %>
+        <%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch), class: 'btn btn-success' %>
+      <% end %>
       <div class="spacer mb-1"></div>
       <%= link_to "Back to listings", watches_path, class: 'btn btn-outline-success' %>
     </div>
