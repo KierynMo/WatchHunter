@@ -1,15 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="spacer col-3"></div>
+    <div class="watch-detail col-6 justify-content-center" style="text-align: center;">
+      <% if @watch.photo.attached? %>
+        <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill, class: 'm-1' %>
+      <% end %>
 
-<div class= "navbar-lewagon"></div>
+      <h1><%= @watch.name %></h1>
+      <h3><%= @watch.brand %></h3>
 
-
-<% if @watch.photo.attached? %>
-  <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<h1><%= @watch.name %></h1>
-<h3><%= @watch.brand %></h3>
-
-<%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch) %>
-<br>
-<%= link_to "Go back to watches", watches_path %>
-
+      <%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch), class: 'btn btn-success' %>
+      <div class="spacer mb-1"></div>
+      <%= link_to "Back to listings", watches_path, class: 'btn btn-outline-success' %>
+    </div>
+  </div>
+</div>
