@@ -10,3 +10,21 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navbarDropdownMenuLink {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.dropdown-toggle::after {
+  color: rgba(56, 102, 65, 1) !important;
+}
+
+.dropdown-menu {
+  border: 1px solid rgba(56, 102, 65, 1) !important;
+  background-color: #F8F9FA !important;
+}
+
+.dropdown-item {
+  color: rgba(56, 102, 65, 1) !important;
+}
