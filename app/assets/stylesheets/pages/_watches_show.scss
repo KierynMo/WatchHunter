@@ -3,3 +3,12 @@
     width: 50%;
   }
 }
+
+#own-watch {
+  .hover { display: none; }
+}
+
+#own-watch:hover {
+  .no-hover { display: none; }
+  .hover { display: inline; }
+}
