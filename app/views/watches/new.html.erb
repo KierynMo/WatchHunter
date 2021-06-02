@@ -1,9 +1,15 @@
-<h2>Add a watch</h2>
-
-<%= simple_form_for @watch do |f| %>
-<%= f.input :name %>
-<%= f.input :brand %>
-<%= f.input :price %>
-<%= f.input :photo, as: :file %>
-<%= f.submit %>
-<% end %>
+<div class="container">
+  <div class="row mt-4">
+    <div class="spacer col-4"></div>
+    <div class="new-listing col-4">
+      <h2>List your watch</h2>
+      <%= simple_form_for @watch do |f| %>
+      <%= f.input :name %>
+      <%= f.input :brand %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <div align='center'><%= f.submit "Create Listing", class: "btn btn-success mt-3" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
