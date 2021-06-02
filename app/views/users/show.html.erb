@@ -3,10 +3,10 @@
     <div class="spacer col-3"></div>
     <div class="user-show-tabs col-6">
       <ul class="nav nav-tabs mt-4 col-12 justify-content-center" role="tablist">
-        <li class="nav-item">
+        <li class="nav-item bg-light">
           <a class="nav-link active" href="#listings" role="tab" data-toggle="tab">My Listings</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item bg-light">
           <a class="nav-link" href="#bookings" role="tab" data-toggle="tab">My Bookings</a>
         </li>
       </ul>
@@ -15,18 +15,15 @@
           <% if @watches.empty? %>
             <h3 class="mt-5" align="center">No Listings</h3>
           <% end %>
-          <div class="cards">
             <% @watches.each do |watch| %>
-              <div class="card-trip">
-                <%= cl_image_tag watch.photo.key, crop: :fill if watch.photo.attached? %>
-                <div class="card-trip-infos">
-                  <div><p><%= watch.brand %></p></div>
-                  <h2 class="card-trip-pricing"> £<%=watch.price %></h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <div class="card-product m-3 bg-light">
+                <%= cl_image_tag watch.photo.key if watch.photo.attached? %>
+                <div class="card-product-infos">
+                  <h2><%= watch.brand %></h2>
+                  <p><strong> £<%=watch.price %></strong> per day</p>
                 </div>
               </div>
             <% end %>
-          </div>
         </div>
         <div class="tab-pane" id="bookings">
           <% if @bookings.empty? %>
