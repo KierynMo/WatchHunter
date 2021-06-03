@@ -34,22 +34,20 @@
           <% if @bookings.empty? %>
             <h3 class="mt-5" align="center">No Bookings</h3>
           <% end %>
-          <div class="cards">
-            <% @bookings.each do |booking| %>
-              <div class="card-trip">
-                <%= cl_image_tag booking.watch.photo.key, crop: :fill if booking.watch.photo.attached?%>
-                <div class="card-trip-infos">
-                  <div>
-                    <p><%= booking.watch.brand %></p>
-                    <p>Booked From - <%= booking.start_date %></p>
-                    <p>Booked To   - <%= booking.end_date %></p>
-                  </div>
-                  <h2 class="card-trip-pricing"> £<%=booking.watch.price %></h2>
-                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <% @bookings.each do |booking| %>
+            <div class="card-product m-3 bg-light">
+              <%= cl_image_tag booking.watch.photo.key if booking.watch.photo.attached? %>
+              <div class="right-hand-side">
+                <div class="card-product-infos">
+                  <h2><%= booking.watch.brand %></h2>
+                  <p><strong> £<%=booking.watch.price %></strong> per day</p>
+                  <p>Booked From - <%= booking.start_date %></p>
+                  <p>Booked To   - <%= booking.end_date %></p>
                 </div>
+                <button class="btn btn-danger"> <%= link_to "Delete", watch_bookings_path(booking), method: :delete, data: { confirm: "Are you sure?" } %> </button>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
