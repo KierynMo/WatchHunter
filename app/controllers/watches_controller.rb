@@ -2,7 +2,12 @@ class WatchesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @watches = Watch.all
+    if params[:query].present?
+      @watches = Watch.search_by_name_and_brand(params[:query])
+      
+    else
+      @watches = Watch.all
+    end
   end
 
   def show
