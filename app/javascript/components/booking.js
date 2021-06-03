@@ -11,8 +11,6 @@ const dynamicPrice = () => {
       const total_price = price * numberOfDays;
       const button = document.querySelector('#js-button');
       button.value = `Book Watch for £${total_price}`;
-
-      console.log(button);
     });
   }
 };

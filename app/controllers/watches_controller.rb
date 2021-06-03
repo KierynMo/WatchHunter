@@ -4,7 +4,7 @@ class WatchesController < ApplicationController
   def index
     if params[:query].present?
       @watches = Watch.search_by_name_and_brand(params[:query])
-      
+
     else
       @watches = Watch.all
     end
@@ -22,7 +22,7 @@ class WatchesController < ApplicationController
     @watch = Watch.new(watch_params)
     @watch.user = current_user
     if @watch.save
-      redirect_to watches_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
