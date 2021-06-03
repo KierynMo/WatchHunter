@@ -12,7 +12,7 @@
         placeholder: "Brands..." %>
       </div>
       <div>
-      <%= submit_tag "Search Listings", class: "btn btn-outline-success my-2 my-sm-0" %> 
+      <%= submit_tag "Search Listings", class: "btn btn-outline-success my-2 my-sm-0" %>
       </div>
     </div>
   <% end %>
@@ -24,7 +24,11 @@
     <% if user_signed_in? %>
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+          <% else %>
+            <%= image_tag 'greenavatar1.png', class: 'avatar' %>
+          <% end %>
         </a>
         <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuButton1">
           <li><%= link_to "My page", user_path(current_user), class: "dropdown-item" %></li>
