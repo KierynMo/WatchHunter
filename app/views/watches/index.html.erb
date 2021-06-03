@@ -3,17 +3,17 @@
   <div class="row">
     <div class="cards col-8">
       <% @watches.each do |watch| %>
-        <div class="card-trip">
+        <%= link_to watch_path(watch), class:"card-trip" do  %>
           <%= cl_image_tag watch.photo.key, crop: :fill if watch.photo.attached?%>
           <div class="card-trip-infos">
             <div>
-              <%= link_to watch.name, watch_path(watch) %>
-              <p><%= watch.brand %></p>
+              <h6><%= watch.brand %></h6>
+              <p><%= watch.name %></p>
             </div>
             <h2 class="card-trip-pricing"> £<%=watch.price %>/day</h2>
             <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
     <div class="col-3">

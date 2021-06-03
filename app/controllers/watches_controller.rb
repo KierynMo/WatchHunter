@@ -6,9 +6,9 @@ class WatchesController < ApplicationController
       @watches = Watch.search_by_name_and_brand(params[:query])
     else
       @watches = Watch.all
-      @markers = @watches.geocoded.map do |flat|
-        { lat: flat.latitude, lng: flat.longitude }
-      end
+    end
+    @markers = @watches.geocoded.map do |flat|
+      { lat: flat.latitude, lng: flat.longitude }
     end
   end
 
@@ -24,11 +24,18 @@ class WatchesController < ApplicationController
     @watch = Watch.new(watch_params)
     @watch.user = current_user
     if @watch.save
-      redirect_to watches_path
+      redirect_to user_path(current_user)
     else
       render :new
     end
   end
+
+  def destroy
+    @watch = Watch.find(params[:id])
+    @watch.destroy
+    redirect_to user_path
+  end
+
 
   private
 

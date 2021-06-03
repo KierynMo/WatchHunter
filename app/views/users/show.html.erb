@@ -24,7 +24,7 @@
                     <h2><%= watch.brand %></h2>
                     <p><strong> £<%=watch.price %></strong> per day</p>
                   </div>
-                  <a href="" class="btn btn-danger">Delete</a>
+                  <%= link_to "Delete", watch_path(watch), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
                 </div>
               </div>
             <% end %>
