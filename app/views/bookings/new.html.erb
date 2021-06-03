@@ -9,8 +9,8 @@
         <%= cl_image_tag @watch.photo.key, crop: :fill if @watch.photo.attached?%>
       </div>
       <%= simple_form_for([@watch, @booking]) do |f| %>
-        <%= f.input :start_date%>
-        <%= f.input :end_date%>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
         <div align='center'><%= f.submit 'Book Watch', class: 'btn btn-success mb-4', id: 'js-button'%></div>
       <% end %>
     </div>
