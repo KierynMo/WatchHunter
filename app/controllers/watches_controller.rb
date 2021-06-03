@@ -6,8 +6,9 @@ class WatchesController < ApplicationController
       @watches = Watch.search_by_name_and_brand(params[:query])
     else
       @watches = Watch.all
-      @markers = @watches.geocoded.map do |flat|
-        { lat: flat.latitude, lng: flat.longitude }
+      @markers = @watches.geocoded.map do |watch|
+        { lat: watch.latitude, lng: watch.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { watch: watch }) }
       end
     end
   end
