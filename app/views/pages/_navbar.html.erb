@@ -11,11 +11,24 @@
     <%= link_to "Create listing", new_watch_path, class: "btn btn-outline-success", style: "margin-right:10px;" %>
 
     <% if user_signed_in? %>
-      <%= link_to user_path(current_user) do %>
-        <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani">
-      <% end %>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to "My page", user_path(current_user), class: "dropdown-item" %></li>
+          <li><%= link_to "Book a watch", watches_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete,  class:"dropdown-item" %></li>
+        </ul>
+      </div>
     <% else %>
       <%= link_to "Log in",  new_user_session_path, class: "btn btn-outline-success" %>
     <% end %>
   </span>
 </nav>
+
+
+
+
+
+
