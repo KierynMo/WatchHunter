@@ -10,6 +10,7 @@
           <a class="nav-link" href="#bookings" role="tab" data-toggle="tab">My Bookings</a>
         </li>
       </ul>
+      <!-- LISTINGS -->
       <div class="tab-content">
         <div class="tab-pane active" id="listings">
           <% if @watches.empty? %>
@@ -18,13 +19,17 @@
             <% @watches.each do |watch| %>
               <div class="card-product m-3 bg-light">
                 <%= cl_image_tag watch.photo.key if watch.photo.attached? %>
-                <div class="card-product-infos">
-                  <h2><%= watch.brand %></h2>
-                  <p><strong> £<%=watch.price %></strong> per day</p>
+                <div class="right-hand-side">
+                  <div class="card-product-infos">
+                    <h2><%= watch.brand %></h2>
+                    <p><strong> £<%=watch.price %></strong> per day</p>
+                  </div>
+                  <a href="" class="btn btn-danger">Delete</a>
                 </div>
               </div>
             <% end %>
         </div>
+        <!-- BOOKINGS -->
         <div class="tab-pane" id="bookings">
           <% if @bookings.empty? %>
             <h3 class="mt-5" align="center">No Bookings</h3>
