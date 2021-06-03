@@ -9,13 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <%#= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-<!-- Navbar: logo /home left, middle search / book, right create / login -->
     <%= render 'pages/navbar' %>
     <%= yield %>
   </body>
