@@ -19,9 +19,20 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:watch_id])
+    @booking.destroy
+    redirect_to user_path
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
 end
+
+
+# build delete route
+# build destroy action in booking controller
+# user/show page delete button
