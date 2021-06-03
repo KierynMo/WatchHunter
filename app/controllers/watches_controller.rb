@@ -28,6 +28,13 @@ class WatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @watch = Watch.find(params[:id])
+    @watch.destroy
+    redirect_to user_path
+  end
+
+
   private
 
   def watch_params

@@ -30,7 +30,7 @@ import { dynamicPrice } from '../components/booking.js';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  dynamicPrice();
+  // dynamicPrice();
   // Call your functions here, e.g:
   // initSelect2();
 });
