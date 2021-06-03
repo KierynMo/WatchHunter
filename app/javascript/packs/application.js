@@ -24,13 +24,13 @@ require("channels")
 
 // External imports
 import "bootstrap";
-// import { dynamicPrice } from 'booking.js';
+import { dynamicPrice } from '../components/booking.js';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // dynamicPrice();
+  dynamicPrice();
   // Call your functions here, e.g:
   // initSelect2();
 });
