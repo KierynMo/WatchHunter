@@ -15,7 +15,7 @@ filename_iterator = 1
 
 20.times do
   @user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456')
-  watch = Watch.create!(name: Faker::Superhero.name, brand: Faker::Company.name, price: rand(2...8000), user: @user)
+  watch = Watch.create!(name: Faker::Superhero.name, brand: Faker::Company.name, price: rand(2...100), user: @user)
   file = URI.open('https://loremflickr.com/320/240/watch')
   watch.photo.attach(io: file, filename: "watch#{filename_iterator}.png", content_type: 'image/png')
   filename_iterator += 1
