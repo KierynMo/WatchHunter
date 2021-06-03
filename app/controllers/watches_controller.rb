@@ -4,9 +4,11 @@ class WatchesController < ApplicationController
   def index
     if params[:query].present?
       @watches = Watch.search_by_name_and_brand(params[:query])
-
     else
       @watches = Watch.all
+    end
+    @markers = @watches.geocoded.map do |flat|
+      { lat: flat.latitude, lng: flat.longitude }
     end
   end
 
