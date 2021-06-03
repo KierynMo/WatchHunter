@@ -8,7 +8,7 @@
             <div>
               <p><%= watch.brand %></p>
             </div>
-            <h2 class="card-trip-pricing"> £<%=watch.price %></h2>
+            <h2 class="card-trip-pricing"> £<%= watch.price %>/day</h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
@@ -25,7 +25,7 @@
             <p>Booked From - <%= booking.start_date %></p>
             <p>Booked To   - <%= booking.end_date %></p>
           </div>
-          <h2 class="card-trip-pricing"> £<%=booking.watch.price %></h2>
+          <h2 class="card-trip-pricing"> £<%=booking.total_price %></h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>

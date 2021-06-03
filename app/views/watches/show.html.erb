@@ -15,7 +15,7 @@
           <span class="hover">It's Your Watch!</span>
         </div>
       <% else %>
-        <%= link_to "Book now for £#{@watch.price}", new_watch_booking_path(@watch), class: 'btn btn-success' %>
+        <%= link_to "Book now for £#{@watch.price}/day", new_watch_booking_path(@watch), class: 'btn btn-success' %>
       <% end %>
       <div class="spacer mb-1"></div>
       <%= link_to "Back to listings", watches_path, class: 'btn btn-outline-success' %>
