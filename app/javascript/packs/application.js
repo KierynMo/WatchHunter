@@ -31,6 +31,6 @@ import { dynamicPrice } from '../components/booking.js';
 import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  setTimeout(() => {  initMapbox(); }, 1000);
   dynamicPrice();
 });
