@@ -1,23 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="spacer col-3"></div>
-    <div class="watch-detail col-6 justify-content-center" style="text-align: center;">
-      <% if @watch.photo.attached? %>
-        <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill, class: 'm-1' %>
-      <% end %>
-
-      <h1><%= @watch.name %></h1>
-      <h3><%= @watch.brand %></h3>
-      <!-- cant book your own watch -->
-      <% if @watch.user == current_user %>
-        <div class="btn btn-secondary" id="own-watch">
-          <span class="no-hover">Booking Disabled</span>
-          <span class="hover">It's Your Watch!</span>
-        </div>
-      <% else %>
-        <%= link_to "Book now for £#{@watch.price}/day", new_watch_booking_path(@watch), class: 'btn btn-success' %>
-      <% end %>
-      <div class="spacer mb-1"></div>
+<div class='container-fluid'>
+    <div class="card mx-auto col-md-3 col-10 mt-5"> <img class='mx-auto img-thumbnail' <% if @watch.photo.attached? %>
+          <%= cl_image_tag @watch.photo.key, height: 300, width: 400, crop: :fill, class: 'm-1' %>
+          <% end %>
+        <div class="card-body text-center mx-auto">
+            <div class='cvp'>
+                <h5 class="card-title font-weight-bold"><%= @watch.name %></h5>
+                <h6 class="card-title"><%= @watch.brand %></h6>
+                  <% if @watch.user == current_user %>
+                    <div class="btn btn-secondary" id="own-watch">
+                      <span class="no-hover">Booking Disabled</span>
+                      <span class="hover">It's Your Watch!</span>
+                    </div>
+                  <% else %>
+                    <%= link_to "Book now for £#{@watch.price}/day", new_watch_booking_path(@watch), class: 'btn btn-success' %>
+                  <% end %>
+            </div>
+      <div class="spacer mb-3"></div>
       <%= link_to "Back to listings", watches_path, class: 'btn btn-outline-success' %>
     </div>
   </div>
