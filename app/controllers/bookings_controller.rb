@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.total_price = price.to_i * @watch.price
 
     if @booking.total_price > 0 && @booking.save
-      redirect_to user_path(current_user.id)   # redirects to the user show page - shows all their bookings etc
+      redirect_to user_path(current_user.id, anchor: "bookings")   # redirects to the user show page - shows all their bookings etc
     else
       render :new
     end
