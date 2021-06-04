@@ -12,7 +12,7 @@
       </ul>
       <!-- LISTINGS -->
       <div class="tab-content">
-        <div class="tab-pane active" id="listings">
+        <div class="tab-pane <%= params[:active_tab]=='bookings' ? '' : 'active' %>" id="listings">
           <% if @watches.empty? %>
             <h3 class="mt-5" align="center">No Listings</h3>
           <% end %>
@@ -30,7 +30,7 @@
             <% end %>
         </div>
         <!-- BOOKINGS -->
-        <div class="tab-pane" id="bookings">
+        <div class="tab-pane <%= params[:active_tab]=='bookings' ? 'active' : '' %>" id="bookings">
           <% if @bookings.empty? %>
             <h3 class="mt-5" align="center">No Bookings</h3>
           <% end %>
