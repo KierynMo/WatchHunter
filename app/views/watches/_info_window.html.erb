@@ -1,3 +1,4 @@
-<%= cl_image_tag watch.photo.key, height: 175, width: 175, crop: :fill, class: 'm-1' %>
-<!-- <h3 align="center">Brand: <%= watch.brand %></h2> -->
+<a href="<%=watch_path(watch)%>" style="border: none;">
+	<%= cl_image_tag watch.photo.key, height: 175, width: 175, crop: :fill, class: 'm-1' %>
+</a>
 <h4 align="center">£<%= watch.price %> per day</h3>
