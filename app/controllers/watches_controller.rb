@@ -11,7 +11,7 @@ class WatchesController < ApplicationController
       { lat: watch.latitude, lng: watch.longitude,
         info_window: render_to_string(partial: "info_window",
                                         locals: { watch: watch }),
-        image_url: helpers.asset_url('watch_marker.png') }
+        image_url: helpers.image_url('watch_marker.png') }
     end
   end
 
