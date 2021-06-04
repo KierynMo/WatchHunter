@@ -3,6 +3,7 @@
   <div class="row pl-1 pr-3">
     <div class="cards col-8">
       <% @watches.each do |watch| %>
+      <% @user = User.find_by(id: watch.user_id) %>
         <%= link_to watch_path(watch), class:"card-trip" do  %>
           <%= cl_image_tag watch.photo.key, crop: :fill if watch.photo.attached?%>
           <div class="card-trip-infos">
@@ -11,7 +12,7 @@
               <p><%= watch.name %></p>
             </div>
             <h2 class="card-trip-pricing"> £<%=watch.price %>/day</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <%= cl_image_tag @user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill if @user.photo.attached? %>
           </div>
         <% end %>
       <% end %>
