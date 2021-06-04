@@ -13,9 +13,9 @@ filename_iterator = 1
 
 TWENTY_LONDON_POSTCODES = ['HA0 1BZ', 'W4 4BZ', 'SW15 4EE', 'SW12 8SR', 'SW2 5TN', 'SE5 8BN', 'SE15 5JA', 'E16 3DH', 'E15 4JY', 'E10 7HF', 'N15 5DS', 'N19 3NU', 'NW3 3EU', 'Nw10 3HJ', 'NW10 8UR', 'NW10 7EF', 'W6 7PZ', 'W14 0RN', 'SW3 6QR', 'SW11 4EJ']
 
-User.create!(first_name: "Doug", last_name: "Barr", email: "doug@gmail.com", password: '123456')
+@first_user = User.create!(first_name: "Doug", last_name: "Barr", email: "doug@gmail.com", password: '123456')
 doug = URI.open('https://loremflickr.com/320/240/kilt')
-@user.photo.attach(io: doug, filename: "doug.png", content_type: 'image/png')
+@first_user.photo.attach(io: doug, filename: "doug.png", content_type: 'image/png')
 
 
 20.times do
@@ -23,8 +23,9 @@ doug = URI.open('https://loremflickr.com/320/240/kilt')
   photo_file = URI.open('https://loremflickr.com/320/240/smiling')
   @user.photo.attach(io: photo_file, filename: "user#{filename_iterator}.png", content_type: 'image/png')
   watch = Watch.create!(name: Faker::Superhero.name, brand: Faker::Company.name, price: rand(2...100), user: @user, postcode: TWENTY_LONDON_POSTCODES[filename_iterator - 1])
-  file = URI.open('https://loremflickr.com/320/240/wrist,watch/all')
+  file = URI.open('http://loremflickr.com/320/240/wrist,watch,rolex/all')
   watch.photo.attach(io: file, filename: "watch#{filename_iterator}.png", content_type: 'image/png')
   filename_iterator += 1
 end
+
 
