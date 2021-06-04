@@ -41,8 +41,8 @@
                 <div class="card-product-infos">
                   <h2><%= booking.watch.brand %></h2>
                   <p><strong> £<%= booking.total_price %></strong></p>
-                  <p>Booked From - <%= booking.start_date %></p>
-                  <p>Booked To   - <%= booking.end_date %></p>
+                  <p>From: &nbsp&nbsp<%= booking.start_date.strftime("%b %d, %Y") %></p>
+                  <p>To:	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= booking.end_date.strftime("%b %d, %Y") %></p>
                 </div>
                 <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
               </div>
@@ -53,3 +53,5 @@
     </div>
   </div>
 </div>
+
+
