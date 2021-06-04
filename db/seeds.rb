@@ -22,7 +22,7 @@ doug = URI.open('https://loremflickr.com/320/240/kilt')
   @user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456')
   photo_file = URI.open('https://loremflickr.com/320/240/smiling')
   @user.photo.attach(io: photo_file, filename: "user#{filename_iterator}.png", content_type: 'image/png')
-  watch = Watch.create!(name: Faker::Superhero.name, brand: Faker::Company.name, price: rand(2...100), user: @user, postcode: TWENTY_LONDON_POSTCODES[filename_iterator - 1])
+  watch = Watch.create!(name: Faker::Superhero.name, brand: filename_iterator < 4 ? 'Rolex' : Faker::Company.name, price: rand(2...100), user: @user, postcode: TWENTY_LONDON_POSTCODES[filename_iterator - 1])
   file = URI.open('http://loremflickr.com/320/240/wrist,watch,rolex/all')
   watch.photo.attach(io: file, filename: "watch#{filename_iterator}.png", content_type: 'image/png')
   filename_iterator += 1
