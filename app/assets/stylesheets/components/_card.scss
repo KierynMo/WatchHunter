@@ -4,6 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
   margin: 10px;
+  height: 300px;
   color: black;
 }
 
@@ -45,7 +46,7 @@
   display: flex;
 }
 .cards {
-  flex-grow: 1;
+  flex-grow: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
