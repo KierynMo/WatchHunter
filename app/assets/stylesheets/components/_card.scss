@@ -10,9 +10,10 @@
 .card-trip:hover {
   color: black;
   text-decoration: none;
+  box-shadow: 0.5px 0.5px #bebebe;
 }
 
-.card-trip > img {
+.card-trip > img {s
   height: 200px;
   width: 100%;
   object-fit: cover;
